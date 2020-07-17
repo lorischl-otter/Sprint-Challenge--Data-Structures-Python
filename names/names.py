@@ -42,6 +42,7 @@ for name in names_2:
 '''
 Given that  this solution implements a binary search tree,
 the runtime complexity for the improved implementation is O(log n).
+This solution ran on my computer in .16 seconds.
 '''
 
 

@@ -20,21 +20,14 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        # if target equals root value, return true
         if target == self.value:
             return True
-        # else, check value of target to follow right or left nodes
         else:
-            # mimic structure of insert to find where value would be
             if target < self.value:
-                # if target is less than parent,
-                # but left node is empty, return False
                 if self.left is None:
                     return False
-                # otherwise, continue recursively w/ left node
                 else:
                     return self.left.contains(target)
-            # if target is larger than root/parent, go to right node
             else:
                 if self.right is None:
                     return False

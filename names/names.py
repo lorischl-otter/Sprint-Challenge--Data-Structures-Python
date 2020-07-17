@@ -48,10 +48,40 @@ This solution ran on my computer in .16 seconds.
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print(f"runtime: {end_time - start_time} seconds")
+print(f"BST runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this
 # problem. What's the best time you can accomplish?  There are no restrictions
 # on techniques or data structures, but you may not import any additional
 # libraries that you did not write yourself.
+
+# Start time
+start_time = time.time()
+
+# Read files
+f = open('names_1.txt', 'r')
+names_1 = f.read().split("\n")  # List containing 10000 names
+f.close()
+
+f = open('names_2.txt', 'r')
+names_2 = f.read().split("\n")  # List containing 10000 names
+f.close()
+
+# Try built-in Python approach with set equivalence
+duplicates_2 = list(set(names_1) & set(names_2))
+
+# Also tried using set intersection, but time was roughly equivalent
+# and sometimes a hair longer, and also requires more characters
+# duplicates_2 = list(set(names_1).intersection(set(names_2)))
+
+# End time and print results
+end_time = time.time()
+print(f"{len(duplicates_2)} duplicates:\n\n{', '.join(duplicates_2)}\n\n")
+print(f"Python runtime: {end_time - start_time} seconds")
+
+print(f"\nConfirm lists are equal: {set(duplicates) == set(duplicates_2)}\n")
+
+'''
+This Python set implementation ran in .004 seconds on my computer!
+'''
